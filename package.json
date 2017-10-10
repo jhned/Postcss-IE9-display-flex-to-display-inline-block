@@ -1,6 +1,6 @@
 {
   "name": "postcss-ie9-flex-to-display-inline-block",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "PostCSS plugin for inserting a display:inline-block setting for IE9 every time display flex is used.",
   "keywords": [
     "postcss",

@@ -7,29 +7,35 @@ module.exports = postcss.plugin('postcss-ie9-flex-to-display-inline-block', func
 
     return function (root, result) {
 
-        var new_rules_array = [];
+        var conglomerate_ie_9_rule = postcss.rule();
+        conglomerate_ie_9_rule.selector = '';
+        conglomerate_ie_9_rule.nodes = [
+            {
+                type: 'decl',
+                prop: 'display',
+                value: 'inline-block'
+            }
+        ];
 
         root.walkRules(function (rule) {
             rule.walkDecls(function (decl, i) {
 
                 if ( 'flex' === decl.value) {
 
-                    var ie9_rule = rule.clone();
+                    var current_selector = rule.selector;
 
-                    var current_selector = ie9_rule.selector;
-                    ie9_rule.selector = '.ie9 ' + current_selector;
+                    var separator = ',';
 
-                    var ie9_decl = decl.clone();
-                    ie9_decl.value = 'inline-block';
+                    if ( conglomerate_ie_9_rule.selector == '') {
+                        separator = '';
+                    }
+                    conglomerate_ie_9_rule.selector += separator + '.ie9 ' + current_selector;
 
-                    ie9_rule.nodes = [ie9_decl];
-
-                    new_rules_array.push(ie9_rule);
                 }
             });
         });
 
-        root.append(new_rules_array);
+        root.append(conglomerate_ie_9_rule);
 
     };
 });
