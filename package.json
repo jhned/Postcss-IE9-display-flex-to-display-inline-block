@@ -1,0 +1,35 @@
+{
+  "name": "postcss-ie9-flex-to-display-inline-block",
+  "version": "0.0.0",
+  "description": "PostCSS plugin for inserting a display:inline-block setting for IE9 every time display flex is used.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "fallback"
+  ],
+  "author": "Josh Nederveld <joshnederveld@gmail.com>",
+  "license": "MIT",
+  "repository": "jhned/postcss-ie9-flex-to-display-inline-block",
+  "bugs": {
+    "url": "https://github.com/jhned/postcss-ie9-flex-to-display-inline-block/issues"
+  },
+  "homepage": "https://github.com/jhned/postcss-ie9-flex-to-display-inline-block",
+  "dependencies": {
+    "postcss": "^5.2.6"
+  },
+  "devDependencies": {
+    "jest": "^17.0.2",
+    "eslint": "^3.10.2",
+    "eslint-config-postcss": "^2.0.2"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  }
+}
